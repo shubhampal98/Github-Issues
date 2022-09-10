@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import { Fragment, useEffect, useState } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import Issue from './components/Issue/Issue';
+import axios from 'axios';
+import data from './data.json';
 
 function App() {
+  const [issues, setIssues] = useState([]);
+
+  const fetchData = async () => {
+    // const res = await axios.get('https://api.github.com/repos/facebook/react/issues');
+    console.log(data);
+    setIssues([...issues, ...data]);
+  }
+
+  useEffect(() => {
+    fetchData();
+    console.log('hello');
+  },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Header />
+      <div className="container">
+        {issues.map(issue => (
+          <Issue issue={issue}/>
+        ))}
+        
+      </div>
+    </Fragment>
   );
 }
 
