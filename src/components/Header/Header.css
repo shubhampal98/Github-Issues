@@ -77,7 +77,7 @@
     display: none;
   }
   .header-bottom ul {
-    font-size: 10px;
+    font-size: 14px;
     display: flex;
     flex-direction: column;
   }
