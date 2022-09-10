@@ -10,9 +10,9 @@ export default function Badge ({title,color}) {
     whiteSpace: "nowrap",
     border: "1px solid transparent",
     borderRadius: "2em",
-    color: "white",
-    backgroundColor: `rgba(${color},0.5)`,
-    borderColor: color
+    color: `#${color}`,
+    backgroundColor: `rgba(red(#${color}),green(#${color}),blue(#${color}),0.3)`,
+    borderColor: `#${color}`
   }
   return (
     <div style={styles}>{title}</div>

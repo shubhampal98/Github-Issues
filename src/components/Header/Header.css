@@ -47,6 +47,11 @@
   background-color: #30363D;
   border-color: #8B949E;
   max-width: 80%;
+  cursor: pointer;
+}
+
+.right button:hover {
+  opacity: 0.5;
 }
 
 .header-bottom {
