@@ -12,13 +12,18 @@ function App() {
   const [issues, setIssues] = useState([]);
 
   const fetchData = async () => {
-    const res = await axios.get('https://api.github.com/repos/facebook/react/issues');
-    setIssues([...issues, ...res.data]);
+    try{
+      const res = await axios.get('https://api.github.com/repos/facebook/react/issues');
+      setIssues([...issues, ...res.data]);
+    }
+    catch(err){
+      console.log(err.message);
+      setIssues([...issues, ...data]);
+    }
   }
 
   useEffect(() => {
     fetchData();
-    console.log('hello');
   },[])
   return (
     <Fragment>
@@ -28,10 +33,10 @@ function App() {
           dataLength={issues.length}
           next={fetchData}
           hasMore={true}
-          loader={<h1 style={{textAlign: "center"}}>Loading...</h1>}
+          loader={<Loader />}
         >
-        {issues.map(issue => (
-          <Issue issue={issue}/>
+        {issues.map((issue,idx) => (
+          <Issue key={idx} issue={issue}/>
         ))}
       </InfiniteScroll>
       </div>

@@ -71,3 +71,14 @@
 .header-bottom ul li:nth-child(2){
   border-bottom: 3px solid orange;
 }
+
+@media screen and (max-width:800px) {
+  .right {
+    display: none;
+  }
+  .header-bottom ul {
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -12,7 +12,8 @@ export default function Badge ({title,color}) {
     borderRadius: "2em",
     color: `#${color}`,
     backgroundColor: `rgba(red(#${color}),green(#${color}),blue(#${color}),0.3)`,
-    borderColor: `#${color}`
+    borderColor: `#${color}`,
+    marginRight: '0.2rem'
   }
   return (
     <div style={styles}>{title}</div>

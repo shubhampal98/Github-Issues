@@ -14,9 +14,11 @@ export default function Issue({issue}) {
         <FaRegDotCircle /> 
         </IconContext.Provider>
         <p>{issue.title}</p>
-        {issue.labels && issue.labels.map(label => (
-          <Badge title={label.name} color={label.color}/>
+        <div className="badges">
+        {issue.labels && issue.labels.map((label,idx) => (
+          <Badge key={idx} title={label.name} color={label.color}/>
         ))}
+        </div>
       </div>
       <div className="user-info">
         <p>#{issue.number} opened on {new Date(issue.created_at).toLocaleDateString()} by ${issue.user.login}</p>
